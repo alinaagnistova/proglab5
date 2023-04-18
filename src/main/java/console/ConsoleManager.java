@@ -35,12 +35,11 @@ public class ConsoleManager implements ReaderWriter {
     @Override
     public String getValidatedValue(String message) {
         write(message);
-        while (true){
+        while (true) {
             String userPrint = readLine();
-            if (!userPrint.isEmpty()){
+            if (!userPrint.isEmpty()) {
                 return userPrint;
             }
-            write("Данные неккоректны, попробуйте ещё раз");
         }
 
     }

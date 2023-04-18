@@ -22,6 +22,7 @@ public class SaveCommand extends BaseCommand{
         if (args.length > 1) {
             throw new InvalidInputException("Вы неправильно ввели команду");
         } else{
+            System.out.println("Укажите название файла:");
             Scanner scanner = new Scanner(System.in);
             String filename = scanner.nextLine();
             Parser.saveToXml(collection, new File(filename));
