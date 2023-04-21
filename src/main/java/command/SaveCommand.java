@@ -10,7 +10,9 @@ import javax.xml.bind.JAXBException;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
-
+/**
+ * save : save the collection to a file
+ */
 public class SaveCommand extends BaseCommand{
     private final CollectionManager collection;
 
@@ -22,18 +24,15 @@ public class SaveCommand extends BaseCommand{
         if (args.length > 1) {
             throw new InvalidInputException("Вы неправильно ввели команду");
         } else{
-            System.out.println("Укажите название файла:");
-            Scanner scanner = new Scanner(System.in);
-            String filename = scanner.nextLine();
-            Parser.saveToXml(collection, new File(filename));
+            Parser.saveToXml(collection);
             System.out.println("Команда выполнена");
         }
     }
 
 
-    public String getDescription() {
+    public void getDescription() {
         String description = "save : сохранить коллекцию в файл";
-        return description;
+        System.out.println(description);
     }
 }
 

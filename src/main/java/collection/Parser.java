@@ -1,14 +1,28 @@
 package collection;
 
+import console.ConsoleManager;
 import data.SpaceMarine;
 
 import javax.xml.bind.*;
 import java.io.*;
 
 public final class Parser {
-    private Parser() {
+    static ConsoleManager consoleManager = new ConsoleManager();
+    private static File file = consoleManager.readFileName();
+    private Parser(File file) {
+        file = this.file;
     }
-    public static void saveToXml(CollectionManager collectionManager, File file) {
+    public Parser() {
+    }
+
+    /**
+     * converts JavaObject to XML file
+     *
+     * @param collectionManager
+     * @throws JAXBException
+     * @throws IOException
+     */
+    public static void saveToXml(CollectionManager collectionManager) {
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(CollectionManager.class);
             Marshaller marshaller = jaxbContext.createMarshaller();
@@ -24,7 +38,14 @@ public final class Parser {
             throw new RuntimeException(e);
         }
     }
-    public static CollectionManager loadFromXml(File file) {
+
+    /**
+     * converts XML to JavaObject
+     *
+     * @return unmarshal file
+     * @throws JAXBException
+     */
+    public static CollectionManager loadFromXml(String file) {
         try {
             BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(file));
             JAXBContext jaxbContext = JAXBContext.newInstance(CollectionManager.class);

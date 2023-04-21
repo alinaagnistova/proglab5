@@ -1,27 +1,22 @@
+//package main.java;
+
 import collection.CollectionManager;
 import command.CommandManager;
-import console.ConsoleManager;
-import data.*;
-
 import javax.xml.bind.*;
 import java.io.*;
-import java.util.List;
-import java.util.Scanner;
+
 
 import static collection.Parser.loadFromXml;
 
 
 public class Main {
 
-
     public static void main(String[] args) throws IOException, IllegalArgumentException, JAXBException {
         System.out.println("Для начала работы с коллекцией укажите файл с данными");
         System.out.println("После того, как вы подключите файл для работы с коллекцией, введите help для получения справки о доступных командах");
-        ConsoleManager consoleManager = new ConsoleManager();
-        File file= consoleManager.readFileName();
         try {
             CollectionManager collectionManager = new CollectionManager();
-            collectionManager.setCollection(loadFromXml(file).getCollection());
+            collectionManager.setCollection(loadFromXml(args[0]).getCollection());
             new CommandManager(collectionManager);
             while (CommandManager.getWork()) {
                 CommandManager.existCommand();

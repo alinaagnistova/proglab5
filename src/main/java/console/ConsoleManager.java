@@ -37,7 +37,7 @@ public class ConsoleManager implements ReaderWriter {
         write(message);
         while (true) {
             String userPrint = readLine();
-            if (!userPrint.isEmpty()) {
+            if (!userPrint.isEmpty() && !userPrint.isBlank()) {
                 return userPrint;
             }
         }

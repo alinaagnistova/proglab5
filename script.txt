@@ -1,0 +1,12 @@
+show
+shuffle
+add
+testingSpaceMarine
+33
+22
+55
+HELIX
+BOLT_PISTOL
+CHAIN_AXE
+hfhdf
+44
