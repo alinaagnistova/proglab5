@@ -40,7 +40,7 @@
         <id>1681730063883</id>
         <name>isfd</name>
         <coordinates>
-            <x>10</x>
+            <x>-500000</x>
             <y>10.0</y>
         </coordinates>
         <health>100.0</health>
@@ -49,7 +49,7 @@
         <meleeWeapon>chain</meleeWeapon>
         <chapter>
             <name>kldsf</name>
-            <marinesCount>10</marinesCount>
+            <marinesCount>100000000000</marinesCount>
         </chapter>
         <creation_date>2023-04-17</creation_date>
     </collection>
@@ -87,5 +87,22 @@
         </chapter>
         <creation_date>2023-04-19</creation_date>
     </collection>
-    <creation_date_collectionManager>2023-04-19</creation_date_collectionManager>
+    <collection>
+        <id>1682090434503</id>
+        <name>lilya</name>
+        <coordinates>
+            <x>3</x>
+            <y>4.0</y>
+        </coordinates>
+        <health>100.0</health>
+        <category>tactical</category>
+        <weaponType>plasme</weaponType>
+        <meleeWeapon>chain</meleeWeapon>
+        <chapter>
+            <name>watrushechniy</name>
+            <marinesCount>3</marinesCount>
+        </chapter>
+        <creation_date>2023-04-21</creation_date>
+    </collection>
+    <creation_date_collectionManager>2023-04-21</creation_date_collectionManager>
 </collectionManager>

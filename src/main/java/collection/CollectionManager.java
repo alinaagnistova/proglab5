@@ -5,6 +5,7 @@ import data.LocalDateAdapter;
 import data.MeleeWeapon;
 import data.SpaceMarine;
 import data.Weapon;
+import error.IncorrectCollectionException;
 
 
 import javax.xml.bind.annotation.*;
@@ -242,6 +243,13 @@ public class CollectionManager implements ICollectionManager {
         }
             Collections.sort(descendingWeapon, Collections.reverseOrder());
             System.out.println(descendingWeapon);
+        }
+        public void checkCollection(){
+            for (SpaceMarine spaceMarine : collection){
+                if (!collectionUtil.checkIfCorrect(spaceMarine)){
+                    throw new IncorrectCollectionException("Исходные данные в коллекции неверны, исправьте файл и попробуйте ещё раз");
+                }
+            }
         }
 
     }

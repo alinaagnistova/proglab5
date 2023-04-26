@@ -45,7 +45,7 @@ public final class Parser {
      * @return unmarshal file
      * @throws JAXBException
      */
-    public static CollectionManager loadFromXml(String file) {
+    public static CollectionManager loadFromXml() {
         try {
             BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(file));
             JAXBContext jaxbContext = JAXBContext.newInstance(CollectionManager.class);
@@ -54,7 +54,6 @@ public final class Parser {
         } catch (JAXBException e) {
             System.out.println("С файлом что-то не так, либо он пуст. В коллекции нет исходных данных");
             return new CollectionManager();
-//            e.printStackTrace();
         } catch (FileNotFoundException ex) {
             throw new RuntimeException("Указанный файл не найден");
         }

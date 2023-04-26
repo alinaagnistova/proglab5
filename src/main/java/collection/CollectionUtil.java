@@ -6,6 +6,7 @@ import data.SpaceMarine;
  * The class that realize methods for work with SpaceMarine
  */
 public class CollectionUtil {
+    static Validator validator = new Validator();
 
     /**
      * @param ID
@@ -36,6 +37,22 @@ public class CollectionUtil {
             System.out.println("Название дивизиона – " + spaceMarine.getChapter().getName());
             System.out.println("Количество бойцов дивизиона – " + spaceMarine.getChapter().getMarinesCount());
             System.out.println("_________________________________________________________\n");
+        }
+        public boolean checkIfCorrect(SpaceMarine spaceMarine){
+            if (
+                        validator.checkName(spaceMarine.getName()) ||
+                        validator.checkCoordinateX(spaceMarine.getCoordinates().getX()) ||
+                        validator.checkCoordinateY(spaceMarine.getCoordinates().getY()) ||
+                        validator.checkHealth(spaceMarine.getHealth()) ||
+                        validator.checkCategory(spaceMarine.getCategory()) ||
+                        validator.checkWeapon(spaceMarine.getWeaponType()) ||
+                        validator.checkMeleeWeapon(spaceMarine.getMeleeWeapon()) ||
+                        validator.checkName(spaceMarine.getChapter().getName()) ||
+                        validator.checkMarinesCount(spaceMarine.getChapter().getMarinesCount())
+            ){
+                return true;
+            }
+            return false;
         }
     }
 

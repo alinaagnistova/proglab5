@@ -54,42 +54,4 @@ public class ClientManager {
             return null;
         }
     }
-//            try {
-//                // Проверяем корректность входных данных и создаем новый объект SpaceMarine
-//                if (!data.get(0).equals("") &&
-//                                Float.parseFloat(data.get(3)) > 0 &&
-//                                ReadManager.doesThisCategoryExist(data.get(4)) &&
-//                                ReadManager.doesThisWeaponExist(data.get(5)) &&
-//                                ReadManager.doesThisMeleeWeaponExist(data.get(6)) &&
-//                                !data.get(7).equals("")
-//                ) {
-//                    return new SpaceMarine(data.get(0), new Coordinates(Integer.parseInt(data.get(1)), Float.parseFloat(data.get(2))), LocalDateTime.parse(data.get(7)), Float.parseFloat(data.get(3)), Enum.valueOf(AstartesCategory.class, data.get(4)), Enum.valueOf(Weapon.class, data.get(5)), Enum.valueOf(MeleeWeapon.class, data.get(6)), new Chapter(data.get(7)), Integer.parseInt(data.get(8)) > 0);
-//                } else {
-//                    System.out.println("Неправильно введены данные");
-//                    return null;
-//                }
-//            } catch (NumberFormatException e) {
-//                System.out.println("Неправильно введены данные");
-//                return null;
-//            }
-//        }
-//
-//    }
-
-//        try {
-//            if ((!data.get(0).equals("")) && (Integer.parseInt(data.get(1)) > 0) && Float.parseFloat(data.get(2)) > 0 && (Float.parseFloat(data.get(3)) != 0 &&
-//                    (Float.parseFloat(data.get(4)) > 0 && (!data.get(5).equals("") && data.get(5).length()<=944 ))&&(Integer.parseInt(data.get(6))>0) && (ReadManager.doesThisCategoryExist(data.get(7))) &&
-//                    (ReadManager.doesThisWeaponExist(data.get(8))) && (ReadManager.doesThisMeleeWeaponExist(data.get(9))))) {
-//                return new SpaceMarine(data.get(0), new Coordinates(Integer.parseInt(data.get(1)), Float.parseFloat(data.get(2))),Float.parseFloat(data.get(3)),Enum.valueOf(AstartesCategory.class, data.get(4)),Enum.valueOf(Weapon.class,data.get(8)),Enum.valueOf(MeleeWeapon.class, data.get(9)),
-//                        new Chapter(data.get(5), Integer.parseInt(data.get(6))));
-//
-//            } else {
-//                System.out.println("Неправильно введены данные");
-//                return null;
-//            }
-//        } catch (NumberFormatException e) {
-//            System.out.println("Неправильно введены данные");
-//            return null;
-//        }
-//    }
 }

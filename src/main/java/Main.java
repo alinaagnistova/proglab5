@@ -1,9 +1,14 @@
 //package main.java;
 
 import collection.CollectionManager;
+import collection.CollectionUtil;
 import command.CommandManager;
+import data.SpaceMarine;
+import error.IncorrectCollectionException;
+
 import javax.xml.bind.*;
 import java.io.*;
+import java.util.LinkedList;
 
 
 import static collection.Parser.loadFromXml;
@@ -16,7 +21,10 @@ public class Main {
         System.out.println("После того, как вы подключите файл для работы с коллекцией, введите help для получения справки о доступных командах");
         try {
             CollectionManager collectionManager = new CollectionManager();
-            collectionManager.setCollection(loadFromXml(args[0]).getCollection());
+//            LinkedList<SpaceMarine> collection = loadFromXml().getCollection();
+            CollectionUtil collectionUtil = new CollectionUtil();
+            collectionManager.setCollection(loadFromXml().getCollection());
+            collectionManager.checkCollection();
             new CommandManager(collectionManager);
             while (CommandManager.getWork()) {
                 CommandManager.existCommand();

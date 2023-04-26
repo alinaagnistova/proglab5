@@ -24,7 +24,7 @@ public class Coordinates implements Serializable {
             throw new InvalidInputException("Значение не может быть null");
         }
         if (x <= -595) {
-            throw new InvalidInputException("Значение поля должно быть больше -595");  //todo не работает??
+            throw new InvalidInputException("Значение поля должно быть больше -595");
         }
         this.x = x;
         this.y = y;
