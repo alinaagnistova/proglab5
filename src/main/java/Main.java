@@ -21,7 +21,6 @@ public class Main {
         System.out.println("После того, как вы подключите файл для работы с коллекцией, введите help для получения справки о доступных командах");
         try {
             CollectionManager collectionManager = new CollectionManager();
-//            LinkedList<SpaceMarine> collection = loadFromXml().getCollection();
             CollectionUtil collectionUtil = new CollectionUtil();
             collectionManager.setCollection(loadFromXml().getCollection());
             collectionManager.checkCollection();
@@ -31,7 +30,7 @@ public class Main {
             }
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
-            System.out.println("Приложение не может запуститься");
+            System.out.println("Отказываюсь работать в таких условиях, пока!");
         }
 
     }
