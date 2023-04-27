@@ -1,8 +1,14 @@
 package console;
 
 
+import collection.CollectionManager;
+import command.CommandManager;
+
+import javax.xml.bind.JAXBException;
 import java.io.File;
 import java.util.Scanner;
+
+import static collection.Parser.loadFromXml;
 
 public class ConsoleManager implements ReaderWriter {
 
@@ -43,11 +49,30 @@ public class ConsoleManager implements ReaderWriter {
         }
 
     }
-    @Override
-    public File readFileName(){
-        Scanner scanner = new Scanner(System.in);
-        String path = scanner.nextLine();
-        File file = new File(String.valueOf(path));
-        return file;
+    public void fileRead() throws JAXBException {
+        while (true) {
+            try {
+                System.out.println("Введите название файла еще раз");
+                Scanner scanner = new Scanner(System.in);
+                String Path = scanner.nextLine();
+                File file = new File(String.valueOf(Path));
+                CollectionManager collectionManager = new CollectionManager();
+                collectionManager.setCollection(loadFromXml(file).getCollection());
+                CommandManager commandManager = new CommandManager(collectionManager);
+                commandManager.setFileLink(Path);
+                while (CommandManager.getWork()) {
+                    CommandManager.existCommand();
+                }
+            } catch (IllegalArgumentException e){
+                System.out.println("Файл не найден");
+            }
+        }
     }
+//    @Override
+//    public File readFileName(){
+//        Scanner scanner = new Scanner(System.in);
+//        String path = scanner.nextLine();
+//        File file = new File(String.valueOf(path));
+//        return file;
+//    }
 }

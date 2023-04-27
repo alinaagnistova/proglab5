@@ -8,5 +8,5 @@ public interface ReaderWriter {
     void writeLine(String text);
     void write(String text);
     String getValidatedValue(String message);
-    File readFileName();
+//    File readFileName();
 }

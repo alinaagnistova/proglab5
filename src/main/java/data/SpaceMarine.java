@@ -2,6 +2,7 @@ package data;
 
 import collection.GenerationID;
 import error.InvalidInputException;
+import org.jetbrains.annotations.NotNull;
 
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -129,6 +130,8 @@ public class SpaceMarine implements Comparable<SpaceMarine>{
             return 0;
         }
     }
+
+
 
     @Override
     public String toString() {

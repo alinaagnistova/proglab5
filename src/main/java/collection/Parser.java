@@ -8,10 +8,10 @@ import java.io.*;
 
 public final class Parser {
     static ConsoleManager consoleManager = new ConsoleManager();
-    private static File file = consoleManager.readFileName();
-    private Parser(File file) {
-        file = this.file;
-    }
+//    private static File file;
+//    public Parser(File file) {
+//        file = this.file;
+//    }
     public Parser() {
     }
 
@@ -22,14 +22,14 @@ public final class Parser {
      * @throws JAXBException
      * @throws IOException
      */
-    public static void saveToXml(CollectionManager collectionManager) {
+    public static void saveToXml(CollectionManager collectionManager, String Path) {
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(CollectionManager.class);
             Marshaller marshaller = jaxbContext.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
             marshaller.setProperty(Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(Path));
             marshaller.marshal(collectionManager, writer);
             writer.close();
         } catch (JAXBException e) {
@@ -45,7 +45,7 @@ public final class Parser {
      * @return unmarshal file
      * @throws JAXBException
      */
-    public static CollectionManager loadFromXml() {
+    public static CollectionManager loadFromXml(File file) {
         try {
             BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(file));
             JAXBContext jaxbContext = JAXBContext.newInstance(CollectionManager.class);

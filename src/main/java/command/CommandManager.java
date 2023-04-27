@@ -13,6 +13,7 @@ public class CommandManager {
     private final CollectionManager collection;
     private static boolean isWorking = true;
     private static HashMap<String, BaseCommand> commandMap = new HashMap<>();
+    private static String fileLink;
 
     /**
      * creates a commandMap with commands
@@ -87,5 +88,12 @@ public class CommandManager {
         return isWorking;
     }
 
+    public static String getFileLink() {
+        return fileLink;
+    }
+
+    public static void setFileLink(String fileLink) {
+        CommandManager.fileLink = fileLink;
+    }
 }
 

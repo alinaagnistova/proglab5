@@ -21,10 +21,11 @@ public class SaveCommand extends BaseCommand{
     }
 
     public void execute(String[] args) throws JAXBException, IOException {
-        if (args.length > 1) {
+        if (args.length != 2) {
             throw new InvalidInputException("Вы неправильно ввели команду");
         } else{
-            Parser.saveToXml(collection);
+//            Parser.saveToXml(collection);
+            collection.save(args[1]);
             System.out.println("Команда выполнена");
         }
     }

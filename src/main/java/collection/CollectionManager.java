@@ -8,8 +8,11 @@ import data.Weapon;
 import error.IncorrectCollectionException;
 
 
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -251,6 +254,17 @@ public class CollectionManager implements ICollectionManager {
                 }
             }
         }
+    public void save(String file) throws JAXBException, IOException {
+        try {
+            String sc = file.trim();
+            Parser.saveToXml(this, sc);
+//        } catch (FileNotFoundException e) {
+//            System.out.println("Файл для сохранения не найден");
+        } catch (NullPointerException e) {
+            System.out.println("Сохранит в текущий файл");
+            Parser.saveToXml(this, file);
+        }
+    }
 
     }
 
