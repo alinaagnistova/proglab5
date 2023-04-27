@@ -255,15 +255,15 @@ public class CollectionManager implements ICollectionManager {
             }
         }
     public void save(String file) throws JAXBException, IOException {
-        try {
-            String sc = file.trim();
-            Parser.saveToXml(this, sc);
-//        } catch (FileNotFoundException e) {
-//            System.out.println("Файл для сохранения не найден");
-        } catch (NullPointerException e) {
-            System.out.println("Сохранит в текущий файл");
-            Parser.saveToXml(this, file);
-        }
+//        try {
+//            String sc = file.trim();
+//            Parser.saveToXml(this, sc);
+////        } catch (FileNotFoundException e) {
+////            System.out.println("Файл для сохранения не найден");
+//        } catch (NullPointerException e) {
+//            System.out.println("Сохранит в текущий файл");
+//            Parser.saveToXml(this, file);
+//        }
     }
 
     }

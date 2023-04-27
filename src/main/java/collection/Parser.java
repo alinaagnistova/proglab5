@@ -10,10 +10,10 @@ import java.io.*;
 public final class Parser {
     static ConsoleManager consoleManager = new ConsoleManager();
 
-    //    private static File file;
-//    public Parser(File file) {
-//        file = this.file;
-//    }
+        private static String fileName;
+    public Parser(String fileName) {
+        fileName = this.fileName;
+    }
     public Parser() {
     }
 
@@ -24,14 +24,14 @@ public final class Parser {
      * @throws JAXBException
      * @throws IOException
      */
-    public static void saveToXml(CollectionManager collectionManager, String Path) {
+    public static void saveToXml(CollectionManager collectionManager){
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(CollectionManager.class);
             Marshaller marshaller = jaxbContext.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
             marshaller.setProperty(Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-            BufferedWriter writer = new BufferedWriter(new FileWriter(Path));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
             marshaller.marshal(collectionManager, writer);
             writer.close();
         } catch (JAXBException e) {
@@ -47,9 +47,10 @@ public final class Parser {
      * @return unmarshal file
      * @throws JAXBException
      */
-    public static CollectionManager loadFromXml(File file) throws FileNotFoundException, JAXBException {
+    public static CollectionManager loadFromXml(String fileName) throws FileNotFoundException, JAXBException {
+        Parser.fileName = fileName;
         try {
-            BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(file));
+            BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(fileName));
             JAXBContext jaxbContext = JAXBContext.newInstance(CollectionManager.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             return (CollectionManager) unmarshaller.unmarshal(inputStream);

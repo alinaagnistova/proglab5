@@ -58,7 +58,7 @@ public class ConsoleManager implements ReaderWriter {
                 String Path = scanner.nextLine();
                 File file = new File(String.valueOf(Path));
                 CollectionManager collectionManager = new CollectionManager();
-                collectionManager.setCollection(loadFromXml(file).getCollection());
+                collectionManager.setCollection(loadFromXml(Path).getCollection());
                 CommandManager commandManager = new CommandManager(collectionManager);
                 commandManager.setFileLink(Path);
                 while (CommandManager.getWork()) {

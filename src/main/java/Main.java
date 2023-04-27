@@ -28,7 +28,7 @@ public class Main {
                         String link = args[0];
                         File file = new File(link);
                         if (file.exists() && !file.isDirectory()) {
-                            collectionManager.setCollection(loadFromXml(file).getCollection());
+                            collectionManager.setCollection(loadFromXml(args[0]).getCollection());
                             CommandManager commandManager = new CommandManager(collectionManager);
                             commandManager.setFileLink(link);
                             while (CommandManager.getWork()) {
