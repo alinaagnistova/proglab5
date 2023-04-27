@@ -15,7 +15,9 @@ public class RemoveGreaterCommand extends BaseCommand{
 
     public void execute(String[] args) {
         if (args.length != 2) {
-            throw new InvalidInputException("Вы неправильно ввели команду");
+            System.out.println("Вы неправильно ввели команду");
+        } if (collection.getCollection().size() == 0){
+            System.out.println("Удалять нечего, файл пуст...");
         } else {
             collection.removeGreater(Float.valueOf(args[1]));
         }

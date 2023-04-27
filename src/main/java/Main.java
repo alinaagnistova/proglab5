@@ -41,12 +41,11 @@ public class Main {
                         consoleManager.fileRead();
                     }
                 } catch (IllegalArgumentException e) {
-                    System.out.println(e.getMessage());
+//                    System.out.println(e.getMessage());
                     consoleManager.fileRead();
                 }
             }
         } catch (JAXBException | NoSuchElementException e) {
-            System.out.println(e.getMessage());
             System.out.println("Отказываюсь работать в таких условиях, пока!");
         }
     }

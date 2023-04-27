@@ -15,7 +15,7 @@ public class ClearCommand extends BaseCommand{
 
     public void execute(String[] args) {
         if (args.length > 1) {
-            throw new InvalidInputException("Вы неправильно ввели команду");
+            System.out.println("Вы неправильно ввели команду");
         } else {
             collection.clear();
             System.out.println("Команда выполнена");

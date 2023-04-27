@@ -22,7 +22,7 @@ public class AddCommand extends BaseCommand {
         if (ExecuteScriptCommand.getFlag()) {
             collection.add(ClientManager.createSpaceMarineFromScript(ExecuteScriptCommand.getSpaceMarineList()));
         } else if (args.length > 1) {
-            throw new InvalidInputException("Вы неправильно ввели команду");
+            System.out.println("Вы неправильно ввели команду");
         } else{
         collection.add(clientManager.getSpaceMarine());
             System.out.println("Команда выполнена");

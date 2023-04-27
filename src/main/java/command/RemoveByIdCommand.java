@@ -15,17 +15,20 @@ public class RemoveByIdCommand extends BaseCommand{
 
     public void execute(String[] args) {
         if (args.length != 2) {
-            throw new InvalidInputException("Вы неправильно ввели команду");
-        } else {
+            System.out.println("Вы неправильно ввели команду");
+        } if (collection.getCollection().size() == 0){
+            System.out.println("Удалять нечего, файл пуст...");
+        }
+        else {
             try {
-                Long ID = Long.parseLong(args[1]);
-                collection.removeById(ID);
-                System.out.println("Команда выполнена");
-            } catch (NumberFormatException e) {
-                System.out.println("Введён неккоретный ID, попробуйте снова");
+                    Long ID = Long.parseLong(args[1]);
+                    collection.removeById(ID);
+                    System.out.println("Команда выполнена");
+                } catch(NumberFormatException e){
+                    System.out.println("Введён неккоретный ID, попробуйте снова");
+                }
             }
         }
-    }
 
 
     public void getDescription() {

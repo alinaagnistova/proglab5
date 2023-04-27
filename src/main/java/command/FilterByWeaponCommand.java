@@ -17,8 +17,11 @@ public class FilterByWeaponCommand extends BaseCommand{
     public void execute(String[] args) {
         Weapon weapon;
         if (args.length != 2) {
-            throw new InvalidInputException("Вы неправильно ввели команду");
-        } else {
+            System.out.println("Вы неправильно ввели команду");
+        } if (collection.getCollection().size() == 0){
+            System.out.println("Фильтровать нечего, файл пуст...");
+        }
+        else {
             try {
                 weapon = Weapon.valueOf(args[1].toUpperCase());
                 collection.filterByWeapon(weapon);

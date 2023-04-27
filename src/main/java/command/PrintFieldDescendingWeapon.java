@@ -15,8 +15,11 @@ public class PrintFieldDescendingWeapon extends BaseCommand{
 
     public void execute(String[] args) {
         if (args.length > 1) {
-            throw new InvalidInputException("Вы неправильно ввели команду");
-        } else {
+            System.out.println("Вы неправильно ввели команду");
+        }
+        if (collection.getCollection().size() == 0){
+            System.out.println("Сказать нечего, файл пуст...");
+        }else {
             collection.printFieldDescendingWeapon();
         }
     }

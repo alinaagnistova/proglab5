@@ -2,13 +2,15 @@ package collection;
 
 import console.ConsoleManager;
 import data.SpaceMarine;
+import error.IncorrectCollectionException;
 
 import javax.xml.bind.*;
 import java.io.*;
 
 public final class Parser {
     static ConsoleManager consoleManager = new ConsoleManager();
-//    private static File file;
+
+    //    private static File file;
 //    public Parser(File file) {
 //        file = this.file;
 //    }
@@ -45,7 +47,7 @@ public final class Parser {
      * @return unmarshal file
      * @throws JAXBException
      */
-    public static CollectionManager loadFromXml(File file) {
+    public static CollectionManager loadFromXml(File file) throws FileNotFoundException, JAXBException {
         try {
             BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(file));
             JAXBContext jaxbContext = JAXBContext.newInstance(CollectionManager.class);
@@ -55,10 +57,12 @@ public final class Parser {
             System.out.println("С файлом что-то не так, либо он пуст. В коллекции нет исходных данных");
             return new CollectionManager();
         } catch (FileNotFoundException ex) {
-            throw new RuntimeException("Указанный файл не найден");
+            System.out.println("Указанный файл не найден");
+            consoleManager.fileRead();
+        }
+        return null;
         }
     }
-}
 
 
 

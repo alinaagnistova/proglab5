@@ -19,7 +19,9 @@ public class UpdateIdCommand extends BaseCommand {
         if (ExecuteScriptCommand.getFlag()) {
             collection.add(ClientManager.createSpaceMarineFromScript(ExecuteScriptCommand.getSpaceMarineList()));
         }else if (args.length != 2) {
-            throw new InvalidInputException("Вы неправильно ввели команду");
+            System.out.println("Вы неправильно ввели команду");
+        } if (collection.getCollection().size() == 0){
+            System.out.println("Сказать нечего, файл пуст...");
         } else {
             try {
                 Long ID = Long.parseLong(args[1]);

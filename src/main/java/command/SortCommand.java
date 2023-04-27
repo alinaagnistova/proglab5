@@ -14,7 +14,9 @@ public class SortCommand extends BaseCommand{
 
     public void execute(String[] args) {
         if (args.length > 1) {
-            throw new InvalidInputException("Вы неправильно ввели команду");
+            System.out.println("Вы неправильно ввели команду");
+        } if (collection.getCollection().size() == 0){
+            System.out.println("Сортировать нечего, файл пуст...");
         } else {
             collection.sort();
             System.out.println("Команда выполнена");

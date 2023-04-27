@@ -6,6 +6,7 @@ import command.CommandManager;
 
 import javax.xml.bind.JAXBException;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import static collection.Parser.loadFromXml;
@@ -49,7 +50,7 @@ public class ConsoleManager implements ReaderWriter {
         }
 
     }
-    public void fileRead() throws JAXBException {
+    public void fileRead() throws JAXBException, FileNotFoundException {
         while (true) {
             try {
                 System.out.println("Введите название файла еще раз");
