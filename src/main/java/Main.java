@@ -41,7 +41,6 @@ public class Main {
                         consoleManager.fileRead();
                     }
                 } catch (IllegalArgumentException e) {
-//                    System.out.println(e.getMessage());
                     consoleManager.fileRead();
                 }
             }
@@ -51,39 +50,5 @@ public class Main {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-//        System.out.println("Для начала работы с коллекцией укажите файл с данными");
-//        System.out.println("После того, как вы подключите файл для работы с коллекцией, введите help для получения справки о доступных командах");
-//        try {
-//            CollectionManager collectionManager = new CollectionManager();
-//            try {
-//                if (args.length > 0) {
-//                    File file = new File(args[0]);
-//                    Parser parser = new Parser(file);
-//                    collectionManager.setCollection(parser.loadFromXml().getCollection());
-//                }
-//            }catch(ArrayIndexOutOfBoundsException ex){
-//                ex.getMessage();
-////                File file = new File("С://Users//agnis//IdeaProjects//Prog_lab5Aline-main//test.xml");
-////                Parser parser = new Parser(file);
-//            }
-//                collectionManager.checkCollection();
-//            new CommandManager(collectionManager);
-//            while (CommandManager.getWork()) {
-//                CommandManager.existCommand();
-//            }
-//        } catch (RuntimeException e) {
-//            System.out.println(e.getMessage());
-//            System.out.println("Отказываюсь работать в таких условиях, пока!");
-//        }
 
 
